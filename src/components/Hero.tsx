@@ -3,6 +3,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
 
+import video from "@/assets/videos/4937474-uhd_4096_2160_25fps.mp4"
+
 const Hero: React.FC = () => {
   return (
     <section className="relative flex flex-col items-start bg-black text-white py-16 overflow-hidden">
@@ -30,7 +32,7 @@ const Hero: React.FC = () => {
           playsInline
           className="w-[85vw] h-[80vh] rounded-md object-cover mt-5"
         >
-          <source src="/src/assets/videos/4937474-uhd_4096_2160_25fps.mp4" type="video/mp4" />
+          <source src={video} type="video/mp4" />
         </video>
         {/* Overlay text inside video */}
         <h2 className="absolute max-md:ml-5  bottom-12 right-16 text-xl md:text-3xl font-sans">
