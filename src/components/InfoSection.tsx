@@ -31,7 +31,7 @@ const InfoSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full mt-10 bg-black text-white">
+    <section className="w-full mt-10 max-md:mt-32 bg-black text-white">
       <div className="max-w-[85vw] mx-auto">
         {/* LayoutGroup for smooth height animations */}
         <LayoutGroup>

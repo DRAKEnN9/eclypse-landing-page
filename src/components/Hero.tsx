@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
   return (
     <section className="relative flex flex-col items-start bg-black text-white py-16 overflow-hidden">
       {/* Title */}
-      <h1 className="text-6xl mt-24 -mb-36 md:text-8xl font-sans ml-28 tracking-tight">
+      <h1 className="text-6xl max-md:mx-auto mt-24 -mb-36 md:text-8xl font-sans ml-28 tracking-tight">
         Eclypse<span className="align-super text-2xl">®</span>
       </h1>
       {/* Credit moved to top-right of video */}

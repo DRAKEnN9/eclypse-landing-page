@@ -1,6 +1,6 @@
 // src/components/ProductCard.tsx
-import React, { useState, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 // Asset imports (update paths as needed)
@@ -14,11 +14,6 @@ const sizes = ['XS', 'S', 'M', 'L', 'XL'];
 const ProductCard: React.FC = () => {
   const navigate = useNavigate();
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  const ref = useRef<HTMLDivElement>(null);
-
-  // Scroll-linked width transform
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'center center', 'end start'] });
-  const width = useTransform(scrollYProgress, [0, 0.5, 1], ['100vw', '90vw', '100vw']);
 
   return (
     <div className="bg-black py-16">
@@ -26,14 +21,7 @@ const ProductCard: React.FC = () => {
         Silhouette No. 1 – Vermilion
       </h2>
 
-      <motion.div
-        ref={ref}
-        style={{ width, margin: '0 auto' }}
-        className="flex flex-col lg:flex-row h-[100vh]"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className="flex flex-col lg:flex-row h-auto lg:h-[100vh] w-[90vw] mx-auto">
         {/* Left side: Video */}
         <div className="w-full lg:w-1/2 h-96 lg:h-auto overflow-hidden">
           <video autoPlay loop muted playsInline className="w-full h-full object-cover">
@@ -44,8 +32,8 @@ const ProductCard: React.FC = () => {
 
         {/* Right side: Details */}
         <div className="w-full lg:w-1/2 p-6 flex flex-col justify-start space-y-6 bg-white">
-          {/* Description */}
-          <p className="mt-4 text-lg font-sans">
+          {/* Description - hidden on small screens */}
+          <p className="mt-4 overflow-hidden text-lg font-sans hidden lg:block">
             A tailored composition in motion. Cut from structured wool with a sculpted shoulder and softened hem, this piece captures presence without force. Worn here in the stillness of a city in motion.
           </p>
 
@@ -73,12 +61,10 @@ const ProductCard: React.FC = () => {
                 <button
                   key={sz}
                   onClick={() => setSelectedSize(sz)}
-                  className={
-                    `px-4 py-2 border rounded-lg h-12 w-24 uppercase text-sm tracking-wide transition 
+                  className={`px-4 py-2 border rounded-lg h-12 w-24 uppercase text-sm tracking-wide transition 
                     ${selectedSize === sz
                       ? 'bg-black text-white border-black'
-                      : 'bg-white text-black border-gray-300 hover:border-black'}`
-                  }
+                      : 'bg-white text-black border-gray-300 hover:border-black'}`}
                 >
                   {sz}
                 </button>
@@ -97,11 +83,11 @@ const ProductCard: React.FC = () => {
               onClick={() => navigate('/checkout')}
               className="flex-1 px-6 py-3 border border-black text-black uppercase tracking-wide rounded-lg hover:bg-black hover:text-white transition"
             >
-              Buy Now
+              Buy Now
             </button>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
