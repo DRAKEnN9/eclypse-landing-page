@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiHeart, FiShoppingCart, FiMenu } from 'react-icons/fi';
 
+import logo from '@/assets/images/204b51ca3d6365117ecab61115aa49089a454cda.jpg';
+
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -16,7 +18,7 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center">
-          <img src="/src/assets/images/204b51ca3d6365117ecab61115aa49089a454cda.jpg" alt="Eclypse Logo" className="h-10 w-auto rounded-md" />
+          <img src={logo} alt="Eclypse Logo" className="h-10 w-auto rounded-md" />
         </a>
 
         {/* Desktop Nav Links */}

@@ -4,6 +4,11 @@ import { FaQuoteLeft } from 'react-icons/fa';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Import images instead of using static paths
+import avatar1 from '@/assets/images/5af646d7b8932db6cf8dfd07b0cb2de43e686ae3.jpg';
+import avatar2 from '@/assets/images/f83137dc614ef1a8d3fd6d899317697d1ea768f0.jpg';
+import avatar3 from '@/assets/images/95122042973d5a9433d93fb59ceca1010bbd44fd.jpg';
+
 interface TestimonialItem {
   quote: string;
   name: string;
@@ -16,19 +21,19 @@ const testimonials: TestimonialItem[] = [
     quote: 'Understated, but unforgettable. It feels like it was made for me',
     name: 'Random Woman',
     location: 'NY, USA',
-    avatar: '/src/assets/images/5af646d7b8932db6cf8dfd07b0cb2de43e686ae3.jpg',
+    avatar: avatar1,
   },
   {
     quote: 'Exceptional craftsmanship and timeless design. Truly a work of art.',
     name: 'John Doe',
     location: 'LA, USA',
-    avatar: '/src/assets/images/f83137dc614ef1a8d3fd6d899317697d1ea768f0.jpg',
+    avatar: avatar2,
   },
   {
     quote: 'Luxurious yet subtle, a perfect balance of form and function.',
     name: 'Jane Smith',
     location: 'London, UK',
-    avatar: '/src/assets/images/95122042973d5a9433d93fb59ceca1010bbd44fd.jpg',
+    avatar: avatar3,
   },
 ];
 
@@ -79,8 +84,8 @@ const Testimonial: React.FC = () => {
                 <button
                   key={idx}
                   onClick={() => goTo(idx)}
-                  className={`w-20 h-20 rounded-full overflow-hidden border-2 ${
-                    idx === current ? 'border-white' : 'border-gray-700'
+                  className={`w-20 h-20 rounded-full overflow-hidden  border-2 ${
+                    idx === current ? 'border-white "transform transition-transform scale-125 transition-all" ' : 'border-gray-700 scale-60 opacity-25'
                   }`}
                 >
                   <img src={item.avatar} alt={item.name} className="w-full h-full object-cover" />
@@ -93,9 +98,8 @@ const Testimonial: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='border-b-transparent mx-28 my-16 border'></div>
+      <div className='border-b mx-28 py-20 border-neutral-400'></div>
     </section>
-
   );
 };
 
